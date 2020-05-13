@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+#coding: utf-8
+
+############################################
+#                MATHEMATICS               #
+############################################
+#                                          #
+#  MONFA-MATAS Patricica & ROZET Corentin  #
+#                                          #
+#           Project : 209poll_2019         #
+#                                          #
+############################################
+
+
+from sys import argv
+
+from usage import help
+from checkArgs import ArgumentManager
+from poll import Poll
+
+
+def main():
+
+    argsManager = ArgumentManager()
+
+    if argsManager.needHelp(argv):
+        help()
+    elif argsManager.checkArgs(argv) == 84:
+        exit (84)
+    else:
+        Poll().run()
+
+
+if __name__ == "__main__":
+    main()
