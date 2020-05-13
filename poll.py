@@ -13,8 +13,10 @@ from sys import argv
 
 from math import sqrt
 
+
 CONFIDENCE95_COEF = 1.96
 CONFIDENCE99_COEF = 2.58
+
 
 class Poll():
 
@@ -31,7 +33,7 @@ class Poll():
     def showInputInfomations(self) -> None:
 
         def showPopulationSize() -> None:
-            
+
             """
             Print out the population size.
             """

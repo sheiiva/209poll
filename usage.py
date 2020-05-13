@@ -15,10 +15,12 @@ def help() -> None:
     Show usage of the program.
     """
 
-    print("USAGE\n"
+    print(
+        "USAGE\n"
         "\t./209poll pSize sSize p\n"
         "\n"
         "DESCRIPTION\n"
         "\tpSize   size of the populations\n"
         "\tSize    size of the sample (supposed to be representative)\n"
-        "\tp       percentage of voting intentions for a specific candidate")
+        "\tp       percentage of voting intentions for a specific candidate"
+        )
