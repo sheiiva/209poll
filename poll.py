@@ -10,8 +10,11 @@
 
 
 from sys import argv
-import numpy as np
 
+from math import sqrt
+
+CONFIDENCE95_COEF = 1.96
+CONFIDENCE99_COEF = 2.58
 
 class Poll():
 
@@ -67,6 +70,20 @@ class Poll():
 
         print("Variance:\t\t{:.6f}".format(self._variance))
 
+    def confidence(self, coef, percentage) -> None:
+
+        """
+        Compute and print the 'percentage' confidence interval amplitude.
+        """
+
+        confidence = coef * sqrt(self._variance) * 100
+        lowestConfidence = 0 if self._p - confidence < 0 else self._p - confidence
+        HighestConfidence = 100 if self._p + confidence > 100 else self._p + confidence
+
+        print("{}% confidence interval: [{:.2f}%; {:.2f}%]".format(percentage,
+                                                                    lowestConfidence,
+                                                                    HighestConfidence))
+
     def run(self) -> None:
 
         """
@@ -75,3 +92,5 @@ class Poll():
 
         self.showInputInfomations()
         self.variance()
+        self.confidence(CONFIDENCE95_COEF, 95)
+        self.confidence(CONFIDENCE99_COEF, 99)
