@@ -10,8 +10,7 @@
 
 
 from sys import argv
-
-from compute import Compute
+import numpy as np
 
 
 class Poll():
@@ -24,6 +23,7 @@ class Poll():
         self._pSize = int(argv[1])
         self._sSize = int(argv[2])
         self._p = float(argv[3])
+        self._variance = 0
 
     def showInputInfomations(self) -> None:
 
@@ -55,6 +55,18 @@ class Poll():
         showSampleSize()
         showVotingIntentions()
 
+    def variance(self) -> None:
+
+        """
+        Compute and print the variance.
+        """
+
+        variance = (self._p * (100-self._p)) / 10000
+        emean = (self._pSize - self._sSize) / (self._pSize - 1)
+        self._variance = (variance / self._sSize) * emean
+
+        print("Variance:\t\t{:.6f}".format(self._variance))
+
     def run(self) -> None:
 
         """
@@ -62,3 +74,4 @@ class Poll():
         """
 
         self.showInputInfomations()
+        self.variance()
