@@ -25,29 +25,35 @@ class Poll():
         self._sSize = int(argv[2])
         self._p = float(argv[3])
 
-    def showPopulationSize(self) -> None:
-        
-        """
-        Print out the population size.
-        """
+    def showInputInfomations(self) -> None:
 
-        print("Population size:\t{}".format(self._pSize))
+        def showPopulationSize() -> None:
+            
+            """
+            Print out the population size.
+            """
 
-    def showSampleSize(self) -> None:
+            print("Population size:\t{}".format(self._pSize))
 
-        """
-        Print out the sample size.
-        """
+        def showSampleSize() -> None:
 
-        print("Sample size:\t\t{}".format(self._sSize))
+            """
+            Print out the sample size.
+            """
 
-    def showVotingIntentions(self) -> None:
+            print("Sample size:\t\t{}".format(self._sSize))
 
-        """
-        Print out the votin intention percentage.
-        """
+        def showVotingIntentions() -> None:
 
-        print("Voting intentions:\t{:.2f}%".format(self._p))
+            """
+            Print out the votin intention percentage.
+            """
+
+            print("Voting intentions:\t{:.2f}%".format(self._p))
+
+        showPopulationSize()
+        showSampleSize()
+        showVotingIntentions()
 
     def run(self) -> None:
 
@@ -55,6 +61,4 @@ class Poll():
         Run computations and process output printing.
         """
 
-        self.showPopulationSize()
-        self.showSampleSize()
-        self.showVotingIntentions()
+        self.showInputInfomations()
